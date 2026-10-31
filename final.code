@@ -1,0 +1,566 @@
+// ==================================================
+// EX NO: 1a   LINEAR SEARCH
+// File: LinearSearch.java
+// ==================================================
+public class LinearSearch
+{
+    public static int linearSearch(int[] arr, int key)
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i] == key)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String a[])
+    {
+        int[] a1= {10,20,30,50,70,90};
+        int key = 50;
+        System.out.println(key+" is found at index: "+linearSearch(a1, key));
+    }
+}
+
+
+// ==================================================
+// EX NO: 1b   BINARY SEARCH
+// File: BinarySearch.java
+// ==================================================
+import java.io.*;
+
+public class BinarySearch
+{
+    public static void binarySearch(int arr[], int first, int last, int key)
+    {
+        int mid = (first + last)/2;
+        while( first <= last )
+        {
+            if ( arr[mid] < key )
+            {
+                first = mid + 1;
+            }
+            else if ( arr[mid] == key )
+            {
+                System.out.println("Element is found at index: " + mid);
+                return;
+            }
+            else
+            {
+                last = mid - 1;
+            }
+            mid = (first + last)/2;
+        }
+        if ( first > last )
+        {
+            System.out.println("Element is not found!");
+        }
+    }
+
+    public static void main(String args[])
+    {
+        int arr[] = {10,20,30,40,50};
+        int key = 30;
+        int last=arr.length-1;
+        binarySearch(arr,0,last,key);
+    }
+}
+
+
+// ==================================================
+// EX NO: 2a   IMPLEMENTATION OF STACK USING CLASSES AND OBJECTS
+// File: StackEmptyMethodExample.java
+// ==================================================
+import java.util.Stack;
+
+public class StackEmptyMethodExample
+{
+    public static void main(String[] args)
+    {
+        //creating an instance of Stack class
+        Stack<Integer> stk= new Stack<>();
+
+        // checking stack is empty or not
+        boolean result = stk.empty();
+        System.out.println("Is the stack empty? " + result);
+
+        // pushing elements into stack
+        stk.push(78);
+        stk.push(113);
+        stk.push(90);
+        stk.push(120);
+
+        //prints elements of the stack
+        System.out.println("Elements in Stack: " + stk);
+        result = stk.empty();
+        System.out.println("Is the stack empty? " + result);
+
+        // top element, pop and count of elements
+        System.out.println("Top element: " + stk.peek());
+        stk.pop();
+        System.out.println("Number of elements in stack: " + stk.size());
+    }
+}
+
+
+// ==================================================
+// EX NO: 2b   IMPLEMENTATION OF QUEUE
+// File: QueueDemo.java
+// ==================================================
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueDemo
+{
+    public static void main(String[] args)
+    {
+        Queue<String> queue = new LinkedList<String>();
+        queue.add("A");
+        queue.add("B");
+        queue.add("C");
+        queue.add("D");
+        System.out.println("The Front element is " + queue.peek());
+        queue.remove();
+        queue.remove();
+        System.out.println("The Front element is " + queue.peek());
+        System.out.println("The queue size is " + queue.size());
+        if (queue.isEmpty())
+        {
+            System.out.println("The queue is empty");
+        }
+        else
+        {
+            System.out.println("The queue is not empty");
+        }
+    }
+}
+
+
+// ==================================================
+// EX NO: 3   JAVA INTERFACE
+// File: Main.java
+// ==================================================
+import java.io.*;
+import java.util.*;
+
+interface AreaCalculable {
+    double calculateArea();
+}
+
+abstract class Shape {
+    protected int length;
+    protected int width;
+
+    public Shape(int length, int width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public abstract void printArea();
+}
+
+class Rectangle extends Shape implements AreaCalculable {
+    public Rectangle(int length, int width) {
+        super(length, width);
+    }
+
+    @Override
+    public void printArea() {
+        System.out.println("Area of Rectangle: " + calculateArea());
+    }
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
+class Triangle extends Shape implements AreaCalculable {
+    public Triangle(int length, int width) {
+        super(length, width);
+    }
+
+    @Override
+    public void printArea() {
+        System.out.println("Area of Triangle: " + calculateArea());
+    }
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * length * width;
+    }
+}
+
+class Circle extends Shape implements AreaCalculable {
+    public Circle(int radius) {
+        super(radius, radius); // Width and length both represent the radius for a circle
+    }
+
+    @Override
+    public void printArea() {
+        System.out.println("Area of Circle: " + calculateArea());
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * length * length;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5, 4);
+        rectangle.printArea();
+
+        Triangle triangle = new Triangle(6, 8);
+        triangle.printArea();
+
+        Circle circle = new Circle(3);
+        circle.printArea();
+    }
+}
+
+
+// ==================================================
+// EX NO: 4   USER DEFINED EXCEPTIONS
+// File: Demo.java   (save in a separate folder from Additional 2)
+// ==================================================
+import java.io.*;
+import java.lang.*;
+
+public class Demo
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            try
+            {
+                int b=20/0;   //ArithmeticException
+            }
+            catch(ArithmeticException e)
+            {
+                System.out.println("ArithmeticException is Found");
+            }
+
+            int a[]=new int[5];
+            a[5]=30;          //ArrayIndexOutOfBoundsException
+            String s="abc";
+            int i=Integer.parseInt(s);   //NumberFormatException
+            String s1=null;
+            System.out.println(s1.length());   //NullPointerException
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("NumberFormatException is Found");
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("ArrayIndexOutOfBoundsException is Found");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("NullPointerException is Found");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Exception is found");
+        }
+        finally
+        {
+            System.out.println("finally block is always executed");
+        }
+    }
+}
+
+
+// ==================================================
+// EX NO: 5   FILE OPERATION
+// File: FileDemo.java   (when it runs, type a file name, e.g. FileDemo.java)
+// ==================================================
+import java.util.Scanner;
+import java.io.File;
+
+class FileDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner input=new Scanner(System.in);
+        String s=input.nextLine();
+        File f1=new File(s);
+        System.out.println("File Name:"+f1.getName());
+        System.out.println("Path:"+f1.getPath());
+        System.out.println("Abs Path:"+f1.getAbsolutePath());
+        System.out.println("Parent:"+f1.getParent());
+        System.out.println("This file is:"+(f1.exists()?"Exists":"Does not exists"));
+        System.out.println("Is file:"+f1.isFile());
+        System.out.println("Is Directory:"+f1.isDirectory());
+        System.out.println("Is Readable:"+f1.canRead());
+        System.out.println("IS Writable:"+f1.canWrite());
+        System.out.println("Is Absolute:"+f1.isAbsolute());
+        System.out.println("File Last Modified:"+f1.lastModified());
+        System.out.println("File Size:"+f1.length()+"bytes");
+        System.out.println("Is Hidden:"+f1.isHidden());
+    }
+}
+
+
+// ==================================================
+// EX NO: 6   GENERIC FUNCTION
+// File: A.java
+// ==================================================
+import java.io.*;
+import java.util.*;
+
+class A
+{
+    @SafeVarargs
+    public static <T extends Comparable<T>> T max(T... elements)
+    {
+        T max = elements[0];
+        for (T element : elements)
+        {
+            if (element.compareTo(max) > 0)
+            {
+                max = element;
+            }
+        }
+        return max;
+    }
+
+    public static void main(String[] args)
+    {
+        System.out.println("Integer Max: " + max(Integer.valueOf(32), Integer.valueOf(56),
+                Integer.valueOf(89), Integer.valueOf(3), Integer.valueOf(456),
+                Integer.valueOf(78), Integer.valueOf(45)));
+        System.out.println("Double Max: " + max(Double.valueOf(5.6), Double.valueOf(7.8),
+                Double.valueOf(2.9), Double.valueOf(18.6), Double.valueOf(10.25),
+                Double.valueOf(18.6001)));
+        System.out.println("String Max: " + max("Strawberry", "Mango", "Apple",
+                "Pomegranate", "Guava", "Blackberry", "Cherry", "Orange", "Date"));
+        System.out.println("Boolean Max: " + max(Boolean.TRUE, Boolean.FALSE));
+        System.out.println("Byte Max: " + max(Byte.MIN_VALUE, Byte.MAX_VALUE));
+    }
+}
+
+
+// ==================================================
+// EX NO: 7   JAVAFX CONTROLS
+// File: ButtonTest.java
+// ==================================================
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class ButtonTest extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        StackPane root = new StackPane();
+        Button btn=new Button("This is a button example");
+        Scene scene=new Scene(root,300,300);
+        root.getChildren().add(btn);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Button Class Example");
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
+// ==================================================
+// EX NO: 7   JAVAFX LAYOUT
+// File: Label_Test.java
+// ==================================================
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+public class Label_Test extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        BorderPane BPane = new BorderPane();
+        BPane.setTop(new Label("This will be at the top"));
+        BPane.setLeft(new Label("This will be at the left"));
+        BPane.setRight(new Label("This will be at the Right"));
+        BPane.setCenter(new Label("This will be at the Centre"));
+        BPane.setBottom(new Label("This will be at the bottom"));
+        Scene scene = new Scene(BPane,600,400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
+// ==================================================
+// EX NO: 7   JAVAFX MENUS
+// File: MenuExample.java
+// ==================================================
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class MenuExample extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        BorderPane root = new BorderPane();
+        Scene scene = new Scene(root,200,300);
+        MenuBar menubar = new MenuBar();
+
+        Menu FileMenu = new Menu("File");
+        MenuItem filemenu1=new MenuItem("new");
+        MenuItem filemenu2=new MenuItem("Save");
+        MenuItem filemenu3=new MenuItem("Exit");
+
+        Menu EditMenu=new Menu("Edit");
+        MenuItem EditMenu1=new MenuItem("Cut");
+        MenuItem EditMenu2=new MenuItem("Copy");
+        MenuItem EditMenu3=new MenuItem("Paste");
+
+        EditMenu.getItems().addAll(EditMenu1,EditMenu2,EditMenu3);
+        root.setTop(menubar);
+        FileMenu.getItems().addAll(filemenu1,filemenu2,filemenu3);
+        menubar.getMenus().addAll(FileMenu,EditMenu);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+}
+
+
+// ==================================================
+// ADDITIONAL EXPERIMENT 1   SELECTION SORT
+// File: SelectionSort.java
+// ==================================================
+import java.io.*;
+
+public class SelectionSort
+{
+    public static void main(String args[])
+    {
+        int array[] = {10, 20, 25, 63, 96, 57};
+        int size = array.length;
+
+        for (int i = 0 ;i< size-1; i++)
+        {
+            int min = i;
+            for (int j = i+1; j<size; j++)
+            {
+                if (array[j] < array[min])
+                {
+                    min = j;
+                }
+            }
+            int temp = array[min];
+            array[min] = array[i];
+            array[i] = temp;
+        }
+
+        for (int i = 0 ;i< size; i++)
+        {
+            System.out.print(" "+array[i]);
+        }
+    }
+}
+
+
+// ==================================================
+// ADDITIONAL EXPERIMENT 2   ABSTRACT CLASS
+// File: Demo.java   (save in a separate folder from Ex 4)
+// ==================================================
+import java.io.*;
+
+abstract class shape
+{
+    int a=10,b=20;
+    abstract void printArea();
+}
+
+class Circle extends shape
+{
+    void printArea()
+    {
+        double pi=3.14;
+        double area=pi*a*a;
+        System.out.println("circle area is"+area);
+    }
+}
+
+class Rectangle extends shape
+{
+    void printArea()
+    {
+        double area=a*b;
+        System.out.println("Rectangle area is"+area);
+    }
+}
+
+class Triangle extends shape
+{
+    void printArea()
+    {
+        double area=0.5*a*b;
+        System.out.println("Triangle area is"+area);
+    }
+}
+
+class Demo
+{
+    public static void main(String[] args)
+    {
+        Circle c1=new Circle();
+        c1.printArea();
+        Rectangle r1=new Rectangle();
+        r1.printArea();
+        Triangle t1=new Triangle();
+        t1.printArea();
+    }
+}
+
+----------------------------------------------
+
+javac LinearSearch.java 
+java LinearSearch
+
+-----------------------------------------------
+for javafx programs to compile need to install This .
+
+**************************************************
+sudo apt update && sudo apt install -y default-jdk openjfx
+
+cd ~/your-repo-folder
+
+javac --module-path /usr/share/openjfx/lib --add-modules javafx.controls ButtonTest.java
+
+
+java --module-path /usr/share/openjfx/lib --add-modules javafx.controls ButtonTest
+
+
+
+////just change the file name
+
+javac --module-path /usr/share/openjfx/lib --add-modules javafx.controls Label_Test.java
+java --module-path /usr/share/openjfx/lib --add-modules javafx.controls Label_Test
+
+
+javac --module-path /usr/share/openjfx/lib --add-modules javafx.controls MenuExample.java
+java --module-path /usr/share/openjfx/lib --add-modules javafx.controls MenuExample
+
+
