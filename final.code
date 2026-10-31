@@ -564,3 +564,21 @@ javac --module-path /usr/share/openjfx/lib --add-modules javafx.controls MenuExa
 java --module-path /usr/share/openjfx/lib --add-modules javafx.controls MenuExample
 
 
+
+
+
+------**-------*-+-**--/-+-*-*+/()(//(*((
+
+
+marakkama kodungadaa
+
+
+git credential-cache exit 2>/dev/null
+rm -f ~/.gitconfig ~/.git-credentials ~/.config/git/config ~/.config/git/credentials
+rm -rf ~/.config/gh
+
+git -C ~/oopscode config --local --unset user.name 2>/dev/null
+git -C ~/oopscode config --local --unset user.email 2>/dev/null
+
+cd ~ && rm -rf oopscode
+
