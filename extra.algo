@@ -1,0 +1,199 @@
+---
+
+         JAVA PROGRAMS – LAB RECORD
+
+---
+
+******************** PROGRAM 1 ********************
+EMPLOYEE SALARY SLIP USING INHERITANCE
+
+---
+
+AIM:
+To calculate and display the salary slip of different employees using inheritance.
+
+ALGORITHM:
+
+1. Create a base class Employee with name, ID, address, mail and mobile number.
+2. Create a salarySlip() method to calculate DA, HRA, PF, Staff Club Fund, Gross Salary and Net Salary from Basic Pay.
+3. Create four derived classes: Programmer, AssistantProfessor, AssociateProfessor and Professor.
+4. Call the parent constructor using super() in each derived class.
+5. Create one object for each derived class in the main method.
+6. Call salarySlip() with the Basic Pay and designation to display each salary slip.
+
+---
+
+******************** PROGRAM 2 ********************
+DOG CLASS USING A PARAMETERIZED CONSTRUCTOR
+
+---
+
+AIM:
+To create a Dog class using a parameterized constructor and display its details.
+
+ALGORITHM:
+
+1. Create a class Dog with two instance variables: name and color.
+2. Create a parameterized constructor that accepts name and color.
+3. Use this keyword to assign values to the instance variables.
+4. Create a display() method to print the dog's name and color.
+5. Create a Dog object by passing "Tommy" and "Brown".
+6. Call display() to display the output.
+
+---
+
+******************** PROGRAM 3 ********************
+DISTANCE CONVERTER USING PACKAGES
+
+---
+
+AIM:
+To perform distance conversions using a user-defined Java package.
+
+ALGORITHM:
+
+1. Create a package named converter.
+2. Create a class Distance with four methods: meterToKm(), kmToMeter(), milesToKm() and kmToMiles().
+3. Create a separate main class and import converter.Distance.
+4. Display a menu containing four conversion choices.
+5. Read the user's choice and distance value using Scanner.
+6. Call the appropriate method, display the converted result and close the Scanner.
+
+---
+
+******************** PROGRAM 4 ********************
+STACK DATA STRUCTURE USING CLASSES AND OBJECTS
+
+---
+
+AIM:
+To implement a stack using an integer array and classes in Java.
+
+ALGORITHM:
+
+1. Create a Stack class with an integer array of size 5 and initialize top to -1.
+2. Create a push() method to check overflow and insert an element.
+3. Create a pop() method to check underflow and remove the top element.
+4. Create a display() method to print elements from top to bottom.
+5. Display a menu containing Push, Pop, Display and Exit inside a do-while loop.
+6. Perform the selected operation repeatedly until Exit is selected.
+
+---
+
+******************** PROGRAM 5 ********************
+SELECTION SORT AND INSERTION SORT
+
+---
+
+AIM:
+To sort an array using Selection Sort and Insertion Sort.
+
+ALGORITHM:
+
+1. Read the number of elements n and create two arrays of size n.
+2. Read n integers into the first array and copy them into the second array.
+3. Apply Selection Sort to the first array by finding the minimum element and swapping.
+4. Apply Insertion Sort to the second array by inserting each element into its correct position.
+5. Display the sorted arrays with the labels "Selection Sort:" and "Insertion Sort:".
+6. Close the Scanner and terminate the program.
+
+---
+
+******************** PROGRAM 6 ********************
+ABSTRACT CLASS TO CALCULATE AREAS
+
+---
+
+AIM:
+To calculate the areas of Rectangle, Circle and Triangle using an abstract class.
+
+ALGORITHM:
+
+1. Create an abstract class Shape with an abstract method area().
+2. Create three subclasses: Rectangle, Circle and Triangle.
+3. Store the required dimensions in each subclass.
+4. Override area() in each subclass and calculate the area using the appropriate formula.
+5. Declare a Shape reference in the main method and assign objects of the three subclasses one by one.
+6. Call area() for each object and display the calculated areas.
+
+---
+
+******************** PROGRAM 7 ********************
+INTERFACE TO CALCULATE AREAS
+
+---
+
+AIM:
+To calculate the areas of different shapes using a Java interface.
+
+ALGORITHM:
+
+1. Create an interface Area containing the method calculateArea().
+2. Create three classes: Rect, Cir and Tri that implement Area.
+3. Define calculateArea() in each class using fixed dimensions.
+4. Calculate the area using the appropriate formula in each class.
+5. Declare an Area reference in the main method and assign objects of the three classes one by one.
+6. Call calculateArea() and display the calculated areas with suitable messages.
+
+---
+
+******************** PROGRAM 8 ********************
+SHAPE ABSTRACT CLASS WITH RECTANGLE, TRIANGLE AND CIRCLE
+
+---
+
+AIM:
+To calculate the areas of different shapes using an abstract class and inheritance.
+
+ALGORITHM:
+
+1. Create an abstract class Shape with two integer variables a and b and a constructor.
+2. Declare an abstract method printArea() inside Shape.
+3. Create subclasses Rectangle, Triangle and Circle that extend Shape.
+4. Write constructors in the subclasses and call the parent constructor using super().
+5. Override printArea() in each subclass to calculate and print the area using the appropriate formula.
+6. Create objects of Rectangle, Triangle and Circle in the main method and call printArea().
+
+---
+
+******************** PROGRAM 9 ********************
+BINARY SEARCH WITH SELECTION AND INSERTION SORT
+
+---
+
+AIM:
+To sort arrays using Selection Sort and Insertion Sort and search for an element using Binary Search.
+
+ALGORITHM:
+
+1. Read the number of elements and store the input in two identical arrays.
+2. Sort the first array using Selection Sort.
+3. Sort the second array using Insertion Sort.
+4. Display both sorted arrays.
+5. Read the key element and perform Binary Search on the Insertion-sorted array.
+6. Print "Element found at position ..." if the key is found; otherwise, print "Element not found".
+
+---
+
+******************** PROGRAM 10 ********************
+DISPLAY MONTH NAME USING A NUMBER
+
+---
+
+AIM:
+To display the month name corresponding to a number using a switch statement.
+
+ALGORITHM:
+
+1. Create a Scanner object to read input from the user.
+2. Ask the user to enter a number between 1 and 12.
+3. Read the number into the variable month.
+4. Use a switch statement with cases 1 to 12 for the twelve months.
+5. Print the corresponding month name or "Invalid month number" if the input is outside 1 to 12.
+6. Close the Scanner and terminate the program.
+
+---
+
+                 END OF PROGRAMS
+
+---
