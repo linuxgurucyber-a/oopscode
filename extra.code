@@ -19,7 +19,7 @@ class Employee {
         double staffClub = 0.001 * BP;
 
         double gross = BP + DA + HRA;
-        double net = gross - PF - staffClub;
+        double net = gross - PF - staffClub; 
 
         System.out.println("\n--- PAY SLIP ---");
         System.out.println("Name: " + emp_name);
