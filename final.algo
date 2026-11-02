@@ -1,0 +1,298 @@
+---
+
+          JAVA PROGRAMS – AIM & ALGORITHM
+
+---
+
+******************** EX.NO: 1a ********************
+LINEAR SEARCH
+
+AIM:
+To search for an element in an array using Linear Search.
+
+ALGORITHM:
+
+1. Declare and initialize an integer array and the search key.
+2. Start from the first element of the array.
+3. Compare each element with the search key.
+4. If the element matches, return its index.
+5. If no match is found, return -1.
+6. Print the search result.
+
+---
+
+******************** EX.NO: 1b ********************
+BINARY SEARCH
+
+AIM:
+To search for an element in a sorted array using Binary Search.
+
+ALGORITHM:
+
+1. Declare a sorted array and the search key.
+2. Initialize first and last positions of the array.
+3. Calculate the middle position.
+4. Compare the middle element with the search key and update the search range.
+5. Repeat until the element is found or the search range becomes empty.
+6. Print the search result.
+
+---
+
+******************** EX.NO: 2a ********************
+IMPLEMENTATION OF STACK USING CLASSES AND OBJECTS
+
+AIM:
+To implement a stack using the Stack class and its built-in methods.
+
+ALGORITHM:
+
+1. Import the Stack class from java.util.
+2. Create a Stack object to store integer values.
+3. Check whether the stack is empty using empty().
+4. Push elements into the stack using push().
+5. Display the stack elements, top element and number of elements.
+6. Pop the top element and display the updated stack size.
+
+---
+
+******************** EX.NO: 2b ********************
+IMPLEMENTATION OF QUEUE
+
+AIM:
+To implement a queue using the Queue interface and LinkedList class.
+
+ALGORITHM:
+
+1. Import the Queue and LinkedList classes.
+2. Create a Queue object to store string elements.
+3. Insert elements into the queue using add().
+4. Display the front element using peek().
+5. Remove two elements using remove() and display the updated front element and queue size.
+6. Check whether the queue is empty and print the result.
+
+---
+
+******************** EX.NO: 3 ********************
+JAVA INTERFACE
+
+AIM:
+To calculate the areas of Rectangle, Triangle and Circle using a Java interface and an abstract class.
+
+ALGORITHM:
+
+1. Create an interface AreaCalculable with the method calculateArea().
+2. Create an abstract class Shape with dimensions and an abstract method printArea().
+3. Create Rectangle, Triangle and Circle classes that extend Shape and implement AreaCalculable.
+4. Override calculateArea() and printArea() in each subclass using the appropriate area formula.
+5. Create objects of Rectangle, Triangle and Circle in the main method.
+6. Call printArea() for each object and display the calculated areas.
+
+---
+
+******************** EX.NO: 4 ********************
+USER DEFINED EXCEPTIONS
+
+AIM:
+To demonstrate exception handling in Java using try, catch and finally blocks.
+
+ALGORITHM:
+
+1. Start the program with nested try blocks.
+2. Perform division by zero and handle ArithmeticException.
+3. Access an invalid array index and handle ArrayIndexOutOfBoundsException.
+4. Convert an invalid string into an integer and handle NumberFormatException.
+5. Handle NullPointerException and other exceptions using catch blocks.
+6. Execute the finally block and display the message.
+
+---
+
+******************** EX.NO: 5 ********************
+FILE OPERATION
+
+AIM:
+To display the properties and details of a file using the File class.
+
+ALGORITHM:
+
+1. Import the Scanner and File classes.
+2. Read the file name from the user.
+3. Create a File object using the entered file name.
+4. Display the file name, path, absolute path and parent directory.
+5. Check and display the file's existence, type, permissions and hidden status.
+6. Display the last modified time and file size.
+
+---
+
+******************** EX.NO: 6 ********************
+GENERIC FUNCTION
+
+AIM:
+To find the maximum value among different data types using a generic function.
+
+ALGORITHM:
+
+1. Create a generic method max() using a type parameter that extends Comparable.
+2. Initialize the maximum value with the first element.
+3. Compare each element with the current maximum.
+4. Update the maximum whenever a greater element is found.
+5. Call the generic method with Integer, Double, String, Boolean and Byte values.
+6. Display the maximum value for each data type.
+
+---
+
+******************** EX.NO: 7a ********************
+JAVAFX CONTROLS – BUTTON
+
+AIM:
+To create and display a button using JavaFX controls.
+
+ALGORITHM:
+
+1. Import the required JavaFX packages.
+2. Create a class ButtonTest that extends Application.
+3. Create a StackPane and a Button with a suitable label.
+4. Add the button to the StackPane and create a Scene.
+5. Set the Scene and title for the primary stage.
+6. Display the window using show() and launch the application.
+
+---
+
+******************** EX.NO: 7b ********************
+JAVAFX LAYOUT – BORDERPANE
+
+AIM:
+To arrange labels in different positions using the JavaFX BorderPane layout.
+
+ALGORITHM:
+
+1. Import the required JavaFX packages.
+2. Create a class Label_Test that extends Application.
+3. Create a BorderPane layout.
+4. Add labels to the top, bottom, left, right and center positions.
+5. Create a Scene and set it on the primary stage.
+6. Display the window using show() and launch the application.
+
+---
+
+******************** EX.NO: 7c ********************
+JAVAFX MENUS
+
+AIM:
+To create a menu bar with File and Edit menus using JavaFX.
+
+ALGORITHM:
+
+1. Import the required JavaFX packages.
+2. Create a class MenuExample that extends Application.
+3. Create a BorderPane, Scene and MenuBar.
+4. Create File and Edit menus with their respective menu items.
+5. Add the menus to the MenuBar and place it at the top of the layout.
+6. Set the Scene on the primary stage and display the window.
+
+---
+
+************ ADDITIONAL EXPERIMENT: 1 ************
+SELECTION SORT
+
+AIM:
+To sort an array of integers in ascending order using Selection Sort.
+
+ALGORITHM:
+
+1. Declare and initialize an integer array.
+2. Find the minimum element in the unsorted portion of the array.
+3. Compare the elements and identify the smallest value.
+4. Swap the smallest element with the first element of the unsorted portion.
+5. Repeat the process until the array is sorted.
+6. Display the sorted array.
+
+---
+
+************ ADDITIONAL EXPERIMENT: 2 ************
+ABSTRACT CLASS
+
+AIM:
+To calculate the areas of Circle, Rectangle and Triangle using an abstract class.
+
+ALGORITHM:
+
+1. Create an abstract class Shape with two integer variables and an abstract method printArea().
+2. Create Circle, Rectangle and Triangle subclasses that extend Shape.
+3. Override printArea() in each subclass.
+4. Calculate the circle area using π × radius × radius.
+5. Calculate the rectangle area using length × width and the triangle area using ½ × base × height.
+6. Create objects of all three subclasses and display their areas.
+
+---
+
+******************** Q1 ********************
+BANK ACCOUNT CLASS – DEPOSIT AND BALANCE ENQUIRY
+
+AIM:
+To perform deposit and balance enquiry operations using classes and objects.
+
+ALGORITHM:
+
+1. Create a BankAccount class with account number, account holder and balance.
+2. Initialize the account details using a constructor.
+3. Create a deposit() method to add a valid amount to the balance.
+4. Create a balanceEnquiry() method to display account details and balance.
+5. Create a BankAccount object in the main method and display the initial balance.
+6. Deposit money and display the updated balance.
+
+---
+
+******************** Q2 ********************
+STUDENT MARKS – TOTAL, AVERAGE AND GRADE
+
+AIM:
+To calculate the total, average and grade of a student using classes and objects.
+
+ALGORITHM:
+
+1. Create a Student class with name, marks, total, average and grade.
+2. Initialize the student name and marks using a constructor.
+3. Calculate the total of all subject marks.
+4. Calculate the average and determine the grade using conditional statements.
+5. Create a Student object and call the calculate() method.
+6. Display the student name, marks, total, average and grade.
+
+---
+
+******************** Q3 ********************
+DEPOSIT MONEY AND CHECK BALANCE USING INHERITANCE
+
+AIM:
+To perform deposit and balance enquiry operations using inheritance.
+
+ALGORITHM:
+
+1. Create a parent class Account with a balance variable and constructor.
+2. Create a checkBalance() method to display the current balance.
+3. Create a SavingsAccount class that extends Account.
+4. Call the parent constructor using super().
+5. Create a deposit() method to add money to the balance.
+6. Create a SavingsAccount object, deposit money and display the updated balance.
+
+---
+
+******************** Q4 ********************
+SALARY OF PERMANENT AND CONTRACT EMPLOYEES
+
+AIM:
+To calculate the salaries of permanent and contract employees using inheritance and method overriding.
+
+ALGORITHM:
+
+1. Create a parent class Employee with employee ID, name and calculateSalary().
+2. Create a PermanentEmployee subclass with basic salary.
+3. Calculate permanent employee salary using HRA, DA and PF.
+4. Create a ContractEmployee subclass with days worked and per-day wage.
+5. Override calculateSalary() in both subclasses and create their objects.
+6. Display the details and salaries of both employees using the display() method.
+
+---
+
+                END OF PROGRAMS
+
+---
