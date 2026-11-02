@@ -1,4 +1,4 @@
-// ==================================================
+//ee ee ==================================================
 // EX NO: 1a   LINEAR SEARCH
 // File: LinearSearch.java
 // ==================================================
@@ -855,12 +855,427 @@ java --module-path /usr/share/openjfx/lib --add-modules javafx.controls Label_Te
 
 javac --module-path /usr/share/openjfx/lib --add-modules javafx.controls MenuExample.java
 java --module-path /usr/share/openjfx/lib --add-modules javafx.controls MenuExample
+// ==================================================
+// Q1. BANK ACCOUNT CLASS (deposit, balance enquiry using methods)
+// File: BankAccountDemo.java
+// ==================================================
+import java.util.Scanner;
 
+class BankAccount
+{
+    int accNumber;
+    String accHolder;
+    double balance;
+
+    BankAccount(int accNumber, String accHolder, double balance)
+    {
+        this.accNumber = accNumber;
+        this.accHolder = accHolder;
+        this.balance = balance;
+    }
+
+    void deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            balance = balance + amount;
+            System.out.println("Deposited: " + amount);
+        }
+        else
+        {
+            System.out.println("Invalid amount");
+        }
+    }
+
+    void balanceEnquiry()
+    {
+        System.out.println("Account Number : " + accNumber);
+        System.out.println("Account Holder : " + accHolder);
+        System.out.println("Balance        : " + balance);
+    }
+}
+
+public class BankAccountDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter account number: ");
+        int no = Integer.parseInt(sc.nextLine().trim());
+        System.out.print("Enter account holder name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter opening balance: ");
+        double bal = Double.parseDouble(sc.nextLine().trim());
+
+        BankAccount acc = new BankAccount(no, name, bal);
+
+        int choice;
+        do
+        {
+            System.out.println("\n1. Deposit  2. Balance Enquiry  3. Exit");
+            System.out.print("Enter your choice: ");
+            choice = Integer.parseInt(sc.nextLine().trim());
+
+            switch (choice)
+            {
+                case 1:
+                    System.out.print("Enter amount to deposit: ");
+                    double amt = Double.parseDouble(sc.nextLine().trim());
+                    acc.deposit(amt);
+                    break;
+                case 2:
+                    acc.balanceEnquiry();
+                    break;
+                case 3:
+                    System.out.println("Thank you");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        } while (choice != 3);
+
+        sc.close();
+    }
+}
+
+
+// ==================================================
+// Q2. STUDENT NAME AND MARKS IN FIVE SUBJECTS - TOTAL, AVERAGE, GRADE
+// File: StudentDemo.java
+// ==================================================
+import java.util.Scanner;
+
+class Student
+{
+    String name;
+    int[] marks = new int[5];
+    int total;
+    double avg;
+    char grade;
+
+    Student(String name, int[] marks)
+    {
+        this.name = name;
+        this.marks = marks;
+    }
+
+    void calculate()
+    {
+        total = 0;
+        for (int i = 0; i < marks.length; i++)
+        {
+            total = total + marks[i];
+        }
+        avg = total / 5.0;
+
+        if (avg >= 90)
+            grade = 'A';
+        else if (avg >= 75)
+            grade = 'B';
+        else if (avg >= 60)
+            grade = 'C';
+        else if (avg >= 50)
+            grade = 'D';
+        else
+            grade = 'F';
+    }
+
+    void display()
+    {
+        System.out.println("\nStudent Name : " + name);
+        System.out.print("Marks        : ");
+        for (int i = 0; i < marks.length; i++)
+        {
+            System.out.print(marks[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Total        : " + total);
+        System.out.println("Average      : " + avg);
+        System.out.println("Grade        : " + grade);
+    }
+}
+
+public class StudentDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter student name: ");
+        String name = sc.nextLine();
+
+        int[] m = new int[5];
+        for (int i = 0; i < 5; i++)
+        {
+            System.out.print("Enter mark for subject " + (i + 1) + ": ");
+            m[i] = Integer.parseInt(sc.nextLine().trim());
+        }
+
+        Student s1 = new Student(name, m);
+        s1.calculate();
+        s1.display();
+
+        sc.close();
+    }
+}
+
+
+// ==================================================
+// Q3. DEPOSIT MONEY AND CHECK BALANCE USING INHERITANCE
+// File: BankInheritance.java
+// ==================================================
+import java.util.Scanner;
+
+class Account
+{
+    double balance;
+
+    Account(double balance)
+    {
+        this.balance = balance;
+    }
+
+    void checkBalance()
+    {
+        System.out.println("Current Balance: " + balance);
+    }
+}
+
+class SavingsAccount extends Account
+{
+    SavingsAccount(double balance)
+    {
+        super(balance);
+    }
+
+    void deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            balance = balance + amount;
+            System.out.println("Deposited: " + amount);
+        }
+        else
+        {
+            System.out.println("Invalid amount");
+        }
+    }
+}
+
+public class BankInheritance
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter opening balance: ");
+        double bal = Double.parseDouble(sc.nextLine().trim());
+
+        SavingsAccount sa = new SavingsAccount(bal);
+        sa.checkBalance();
+
+        System.out.print("Enter amount to deposit: ");
+        double amt = Double.parseDouble(sc.nextLine().trim());
+        sa.deposit(amt);
+
+        sa.checkBalance();
+        sc.close();
+    }
+}
+
+
+// ==================================================
+// Q4. SALARY OF PERMANENT AND CONTRACT EMPLOYEES (Employee superclass)
+// File: EmployeeDemo.java
+// ==================================================
+import java.util.Scanner;
+
+class Employee
+{
+    int empId;
+    String name;
+
+    Employee(int empId, String name)
+    {
+        this.empId = empId;
+        this.name = name;
+    }
+
+    double calculateSalary()
+    {
+        return 0;
+    }
+
+    void display()
+    {
+        System.out.println("Employee ID   : " + empId);
+        System.out.println("Employee Name : " + name);
+        System.out.println("Salary        : " + calculateSalary());
+    }
+}
+
+class PermanentEmployee extends Employee
+{
+    double basic;
+
+    PermanentEmployee(int empId, String name, double basic)
+    {
+        super(empId, name);
+        this.basic = basic;
+    }
+
+    @Override
+    double calculateSalary()
+    {
+        double hra = 0.20 * basic;
+        double da = 0.10 * basic;
+        double pf = 0.12 * basic;
+        return basic + hra + da - pf;
+    }
+}
+
+class ContractEmployee extends Employee
+{
+    int daysWorked;
+    double perDayWage;
+
+    ContractEmployee(int empId, String name, int daysWorked, double perDayWage)
+    {
+        super(empId, name);
+        this.daysWorked = daysWorked;
+        this.perDayWage = perDayWage;
+    }
+
+    @Override
+    double calculateSalary()
+    {
+        return daysWorked * perDayWage;
+    }
+}
+
+public class EmployeeDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("--- Permanent Employee ---");
+        System.out.print("Enter employee id: ");
+        int id1 = Integer.parseInt(sc.nextLine().trim());
+        System.out.print("Enter name: ");
+        String n1 = sc.nextLine();
+        System.out.print("Enter basic salary: ");
+        double basic = Double.parseDouble(sc.nextLine().trim());
+        Employee e1 = new PermanentEmployee(id1, n1, basic);
+
+        System.out.println("\n--- Contract Employee ---");
+        System.out.print("Enter employee id: ");
+        int id2 = Integer.parseInt(sc.nextLine().trim());
+        System.out.print("Enter name: ");
+        String n2 = sc.nextLine();
+        System.out.print("Enter days worked: ");
+        int days = Integer.parseInt(sc.nextLine().trim());
+        System.out.print("Enter per day wage: ");
+        double wage = Double.parseDouble(sc.nextLine().trim());
+        Employee e2 = new ContractEmployee(id2, n2, days, wage);
+
+        System.out.println("\n--- Permanent Employee Details ---");
+        e1.display();
+        System.out.println("\n--- Contract Employee Details ---");
+        e2.display();
+
+        sc.close();
+    }
+}
+
+
+// ==================================================
+// Q5. PAYMENT INTERFACE WITH pay() - UPI AND CARD PAYMENT
+// File: PaymentDemo.java
+// ==================================================
+import java.util.Scanner;
+
+interface Payment
+{
+    void pay(double amount);
+}
+
+class UpiPayment implements Payment
+{
+    String upiId;
+
+    UpiPayment(String upiId)
+    {
+        this.upiId = upiId;
+    }
+
+    public void pay(double amount)
+    {
+        System.out.println("Paid Rs." + amount + " using UPI ID: " + upiId);
+    }
+}
+
+class CardPayment implements Payment
+{
+    String cardNumber;
+
+    CardPayment(String cardNumber)
+    {
+        this.cardNumber = cardNumber;
+    }
+
+    public void pay(double amount)
+    {
+        System.out.println("Paid Rs." + amount + " using Card: " + cardNumber);
+    }
+}
+
+public class PaymentDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. UPI Payment  2. Card Payment");
+        System.out.print("Enter your choice: ");
+        int choice = Integer.parseInt(sc.nextLine().trim());
+
+        System.out.print("Enter amount: ");
+        double amount = Double.parseDouble(sc.nextLine().trim());
+
+        Payment p;
+        if (choice == 1)
+        {
+            System.out.print("Enter UPI ID: ");
+            p = new UpiPayment(sc.nextLine());
+            p.pay(amount);
+        }
+        else if (choice == 2)
+        {
+            System.out.print("Enter card number: ");
+            p = new CardPayment(sc.nextLine());
+            p.pay(amount);
+        }
+        else
+        {
+            System.out.println("Invalid choice");
+        }
+
+        sc.close();
+    }
+}
 
 
 
 
 ------**-------*-+-**--/-+-*-*+/()(//(*((
+javac BankAccountDemo.java && java BankAccountDemo
+javac StudentDemo.java && java StudentDemo
+javac BankInheritance.java && java BankInheritance
+javac EmployeeDemo.java && java EmployeeDemo
+javac PaymentDemo.java && java PaymentDemo
+
 
 
 marakkama kodungadaa
