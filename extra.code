@@ -1,0 +1,578 @@
+// ============================================================
+// 1. Employee Salary Slip Using Inheritance
+// ============================================================
+class Employee {
+    String emp_name, emp_id, address, mail_id, mobile_no;
+
+    Employee(String name, String id, String addr, String mail, String mobile) {
+        emp_name = name;
+        emp_id = id;
+        address = addr;
+        mail_id = mail;
+        mobile_no = mobile;
+    }
+
+    void salarySlip(double BP, String designation) {
+        double DA = 0.97 * BP;
+        double HRA = 0.10 * BP;
+        double PF = 0.12 * BP;
+        double staffClub = 0.001 * BP;
+
+        double gross = BP + DA + HRA;
+        double net = gross - PF - staffClub;
+
+        System.out.println("\n--- PAY SLIP ---");
+        System.out.println("Name: " + emp_name);
+        System.out.println("ID: " + emp_id);
+        System.out.println("Designation: " + designation);
+        System.out.println("Basic Pay: " + BP);
+        System.out.println("DA: " + DA);
+        System.out.println("HRA: " + HRA);
+        System.out.println("PF: " + PF);
+        System.out.println("Staff Club Fund: " + staffClub);
+        System.out.println("Gross Salary: " + gross);
+        System.out.println("Net Salary: " + net);
+    }
+}
+
+class Programmer extends Employee {
+    Programmer(String n, String id, String a, String m, String mob) {
+        super(n, id, a, m, mob);
+    }
+}
+
+class AssistantProfessor extends Employee {
+    AssistantProfessor(String n, String id, String a, String m, String mob) {
+        super(n, id, a, m, mob);
+    }
+}
+
+class AssociateProfessor extends Employee {
+    AssociateProfessor(String n, String id, String a, String m, String mob) {
+        super(n, id, a, m, mob);
+    }
+}
+
+class Professor extends Employee {
+    Professor(String n, String id, String a, String m, String mob) {
+        super(n, id, a, m, mob);
+    }
+}
+
+public class EmployeeDemo {
+    public static void main(String[] args) {
+        Programmer p = new Programmer("Arun", "E101", "Chennai", "arun@gmail.com", "9876543210");
+        p.salarySlip(30000, "Programmer");
+
+        AssistantProfessor ap = new AssistantProfessor("Ravi", "E102", "Chennai", "ravi@gmail.com", "9876543211");
+        ap.salarySlip(40000, "Assistant Professor");
+
+        AssociateProfessor asp = new AssociateProfessor("Kumar", "E103", "Chennai", "kumar@gmail.com", "9876543212");
+        asp.salarySlip(50000, "Associate Professor");
+
+        Professor pr = new Professor("Suresh", "E104", "Chennai", "suresh@gmail.com", "9876543213");
+        pr.salarySlip(60000, "Professor");
+    }
+}
+
+
+// ============================================================
+// 2. Dog Class Using a Parameterized Constructor
+// ============================================================
+class Dog {
+    String name;
+    String color;
+
+    Dog(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+
+    void display() {
+        System.out.println("Dog Name: " + name);
+        System.out.println("Dog Color: " + color);
+    }
+}
+
+public class DogDemo {
+    public static void main(String[] args) {
+        Dog d = new Dog("Tommy", "Brown");
+        d.display();
+    }
+}
+
+
+// ============================================================
+// 3. Distance Converter Using Packages
+// ============================================================
+// File 1: converter/Distance.java
+package converter;
+
+public class Distance {
+    public double meterToKm(double meter) {
+        return meter / 1000.0;
+    }
+
+    public double kmToMeter(double km) {
+        return km * 1000.0;
+    }
+
+    public double milesToKm(double miles) {
+        return miles * 1.60934;
+    }
+
+    public double kmToMiles(double km) {
+        return km / 1.60934;
+    }
+}
+
+// File 2: DistanceDemo.java  (in the parent folder of converter)
+import converter.Distance;
+import java.util.Scanner;
+
+public class DistanceDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Distance d = new Distance();
+
+        System.out.println("1. Meter to KM");
+        System.out.println("2. KM to Meter");
+        System.out.println("3. Miles to KM");
+        System.out.println("4. KM to Miles");
+        System.out.print("Enter choice: ");
+
+        int choice = sc.nextInt();
+        System.out.print("Enter distance: ");
+        double value = sc.nextDouble();
+
+        switch (choice) {
+            case 1:
+                System.out.println(d.meterToKm(value) + " KM");
+                break;
+            case 2:
+                System.out.println(d.kmToMeter(value) + " meters");
+                break;
+            case 3:
+                System.out.println(d.milesToKm(value) + " KM");
+                break;
+            case 4:
+                System.out.println(d.kmToMiles(value) + " miles");
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+        sc.close();
+    }
+}
+
+
+// ============================================================
+// 4. Stack Data Structure Using Classes and Objects
+// ============================================================
+import java.util.Scanner;
+
+class Stack {
+    int arr[] = new int[5];
+    int top = -1;
+
+    void push(int value) {
+        if (top == arr.length - 1) {
+            System.out.println("Stack Overflow");
+        } else {
+            arr[++top] = value;
+            System.out.println("Element pushed");
+        }
+    }
+
+    void pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow");
+        } else {
+            System.out.println("Popped: " + arr[top--]);
+        }
+    }
+
+    void display() {
+        if (top == -1) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Stack elements:");
+            for (int i = top; i >= 0; i--) {
+                System.out.println(arr[i]);
+            }
+        }
+    }
+}
+
+public class StackDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Stack s = new Stack();
+        int choice;
+
+        do {
+            System.out.println("\n1.Push  2.Pop  3.Display  4.Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value: ");
+                    s.push(sc.nextInt());
+                    break;
+                case 2:
+                    s.pop();
+                    break;
+                case 3:
+                    s.display();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        } while (choice != 4);
+
+        sc.close();
+    }
+}
+
+
+// ============================================================
+// 5. Selection Sort and Insertion Sort
+// ============================================================
+import java.util.Scanner;
+
+public class SortingDemo {
+    static void selectionSort(int a[], int n) {
+        for (int i = 0; i < n - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < n; j++) {
+                if (a[j] < a[min]) {
+                    min = j;
+                }
+            }
+            int temp = a[i];
+            a[i] = a[min];
+            a[min] = temp;
+        }
+    }
+
+    static void insertionSort(int a[], int n) {
+        for (int i = 1; i < n; i++) {
+            int key = a[i];
+            int j = i - 1;
+            while (j >= 0 && a[j] > key) {
+                a[j + 1] = a[j];
+                j--;
+            }
+            a[j + 1] = key;
+        }
+    }
+
+    static void display(int a[]) {
+        for (int x : a) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        int a[] = new int[n];
+        int b[] = new int[n];
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+            b[i] = a[i];
+        }
+
+        selectionSort(a, n);
+        System.out.print("Selection Sort: ");
+        display(a);
+
+        insertionSort(b, n);
+        System.out.print("Insertion Sort: ");
+        display(b);
+
+        sc.close();
+    }
+}
+
+
+// ============================================================
+// 6. Abstract Class to Calculate Areas
+// ============================================================
+abstract class Shape {
+    abstract void area();
+}
+
+class Rectangle extends Shape {
+    double length = 10, breadth = 5;
+
+    void area() {
+        System.out.println("Rectangle Area: " + (length * breadth));
+    }
+}
+
+class Circle extends Shape {
+    double radius = 7;
+
+    void area() {
+        System.out.println("Circle Area: " + (Math.PI * radius * radius));
+    }
+}
+
+class Triangle extends Shape {
+    double base = 10, height = 6;
+
+    void area() {
+        System.out.println("Triangle Area: " + (0.5 * base * height));
+    }
+}
+
+public class AbstractAreaDemo {
+    public static void main(String[] args) {
+        Shape s;
+
+        s = new Rectangle();
+        s.area();
+
+        s = new Circle();
+        s.area();
+
+        s = new Triangle();
+        s.area();
+    }
+}
+
+
+// ============================================================
+// 7. Interface to Calculate Areas
+// ============================================================
+interface Area {
+    void calculateArea();
+}
+
+class Rect implements Area {
+    public void calculateArea() {
+        int length = 10, breadth = 5;
+        System.out.println("Rectangle Area: " + (length * breadth));
+    }
+}
+
+class Cir implements Area {
+    public void calculateArea() {
+        double radius = 7;
+        System.out.println("Circle Area: " + (Math.PI * radius * radius));
+    }
+}
+
+class Tri implements Area {
+    public void calculateArea() {
+        int base = 10, height = 6;
+        System.out.println("Triangle Area: " + (0.5 * base * height));
+    }
+}
+
+public class InterfaceAreaDemo {
+    public static void main(String[] args) {
+        Area a;
+
+        a = new Rect();
+        a.calculateArea();
+
+        a = new Cir();
+        a.calculateArea();
+
+        a = new Tri();
+        a.calculateArea();
+    }
+}
+
+
+// ============================================================
+// 8. Shape Abstract Class with Rectangle, Triangle and Circle
+// ============================================================
+abstract class Shape {
+    int a, b;
+
+    Shape(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    abstract void printArea();
+}
+
+class Rectangle extends Shape {
+    Rectangle(int a, int b) {
+        super(a, b);
+    }
+
+    void printArea() {
+        System.out.println("Area of Rectangle: " + (a * b));
+    }
+}
+
+class Triangle extends Shape {
+    Triangle(int a, int b) {
+        super(a, b);
+    }
+
+    void printArea() {
+        System.out.println("Area of Triangle: " + (0.5 * a * b));
+    }
+}
+
+class Circle extends Shape {
+    Circle(int radius) {
+        super(radius, 0);
+    }
+
+    void printArea() {
+        System.out.println("Area of Circle: " + (Math.PI * a * a));
+    }
+}
+
+public class ShapeDemo {
+    public static void main(String[] args) {
+        Shape s;
+
+        s = new Rectangle(10, 5);
+        s.printArea();
+
+        s = new Triangle(10, 6);
+        s.printArea();
+
+        s = new Circle(7);
+        s.printArea();
+    }
+}
+
+
+// ============================================================
+// 9. Binary Search with Selection and Insertion Sort
+// ============================================================
+import java.util.Scanner;
+
+public class SearchSortDemo {
+    static void selectionSort(int a[]) {
+        for (int i = 0; i < a.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < a[min]) {
+                    min = j;
+                }
+            }
+            int temp = a[i];
+            a[i] = a[min];
+            a[min] = temp;
+        }
+    }
+
+    static void insertionSort(int a[]) {
+        for (int i = 1; i < a.length; i++) {
+            int key = a[i];
+            int j = i - 1;
+            while (j >= 0 && a[j] > key) {
+                a[j + 1] = a[j];
+                j--;
+            }
+            a[j + 1] = key;
+        }
+    }
+
+    static int binarySearch(int a[], int key) {
+        int low = 0, high = a.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (a[mid] == key)
+                return mid;
+            else if (a[mid] < key)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+        return -1;
+    }
+
+    static void display(int a[]) {
+        for (int x : a)
+            System.out.print(x + " ");
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        int a[] = new int[n];
+        int b[] = new int[n];
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+            b[i] = a[i];
+        }
+
+        selectionSort(a);
+        System.out.print("Selection Sort: ");
+        display(a);
+
+        insertionSort(b);
+        System.out.print("Insertion Sort: ");
+        display(b);
+
+        System.out.print("Enter element to search: ");
+        int key = sc.nextInt();
+        int pos = binarySearch(b, key);
+
+        if (pos == -1)
+            System.out.println("Element not found");
+        else
+            System.out.println("Element found at position " + (pos + 1));
+
+        sc.close();
+    }
+}
+
+
+// ============================================================
+// 10. Display Month Name Using a Number
+// ============================================================
+import java.util.Scanner;
+
+public class MonthDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number (1-12): ");
+        int month = sc.nextInt();
+
+        switch (month) {
+            case 1:  System.out.println("January"); break;
+            case 2:  System.out.println("February"); break;
+            case 3:  System.out.println("March"); break;
+            case 4:  System.out.println("April"); break;
+            case 5:  System.out.println("May"); break;
+            case 6:  System.out.println("June"); break;
+            case 7:  System.out.println("July"); break;
+            case 8:  System.out.println("August"); break;
+            case 9:  System.out.println("September"); break;
+            case 10: System.out.println("October"); break;
+            case 11: System.out.println("November"); break;
+            case 12: System.out.println("December"); break;
+            default: System.out.println("Invalid month number");
+        }
+
+        sc.close();
+    }
+}
